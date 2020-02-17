@@ -1,0 +1,10 @@
+<ul class="flex items-center tex-sm font-medium h-full">
+    {% if user.is_authenticated %}
+        <li class="nav_link"><a href="{% url 'rooms:add_room' %}">Upload Room</a></li>
+        <li class="nav_link"><a href="{{ user.get_absolute_url }}">Profile</a></li>
+        <li class="nav_link"><a class="py-10" href="{% url 'users:logout' %}">Log out</a></li>
+    {% else %}
+        <li class="nav_link"><a href="{% url 'users:login' %}">Login</a></li>
+        <li class="nav_link"><a href="{% url 'users:signup' %}">Sign Up</a></li>
+    {% endif %}
+</ul>
